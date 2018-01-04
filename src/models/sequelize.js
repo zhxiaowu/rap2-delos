@@ -18,7 +18,10 @@ const sequelize = new Sequelize({
   port: config.db.port,
   dialect: config.db.dialect,
   pool: config.db.pool,
-  logging: config.db.logging ? logging : false
+  logging: config.db.logging ? logging : false,
+  dialectOptions:{
+      insecureAuth:config.db.insecureAuth ? true : false
+  }
 })
 
 sequelize.authenticate()
